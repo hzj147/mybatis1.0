@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.UserDao">
+    <!--开启二级缓存  -->
+    <cache/>
+
+    <select id="selevtUser" resultType="com.pojo.User">
+		  select * from user ;
+		</select>
+	<update id="updateUser" parameterType="com.pojo.User">
+		UPDATE `user` SET `name`="勇敢飞" WHERE `name`="黄志杰"
+	</update>
+
+	<select id="selectUserOne" resultType="com.pojo.User">
+		select id,name from user id=#{id} and name=#{name}
+	</select>
+
+<!--    <delete id="deleteOne">-->
+<!--		  delete from dept where deptno=#{deptno};-->
+<!--	</delete>-->
+
+    <update id="updateOne">
+		  update dept set dname=#{dname} where deptno=#{deptno};
+	</update>
+
+    <insert id="insertOne">
+		  insert into dept (dname,db_source) values (#{dname},#{db_source});
+	</insert>
+</mapper>
+
+
+
+
+
+
